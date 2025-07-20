@@ -5,203 +5,264 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Keen Common Service Centre</title>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keen Common Service Centre Jakyas</title>
   <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-  }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
 
-  header {
-    background-color: #2C3E50;
-    padding: 20px;
-    color: white;
-  }
+    header {
+      background-color: #2C3E50;
+      padding: 20px;
+      color: white;
+    }
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  .logo-img {
-    height: 50px;
-    border-radius: 50%;
-  }
+    .logo-img {
+      height: 50px;
+      border-radius: 50%;
+    }
 
-  .nav-links {
-    list-style: none;
-    display: flex;
-  }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-  .nav-links li {
-    margin: 0 15px;
-  }
+    .nav-links li {
+      margin: 10px 15px;
+    }
 
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: color 0.3s;
-  }
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
 
-  .nav-links a:hover {
-    color: #1abc9c;
-  }
+    .nav-links a:hover {
+      color: #1abc9c;
+    }
 
-  .hero {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 20px;
-    background-color: #3498db;
-    color: white;
-  }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 20px;
+      background-color: #3498db;
+      color: white;
+    }
 
-  .hero-content {
-    flex: 1;
-    padding: 20px;
-  }
+    .hero-content {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
 
-  .hero-content h1 {
-    font-size: 36px;
-    margin-bottom: 15px;
-  }
+    .hero-content h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
 
-  .hero-content p {
-    font-size: 18px;
-  }
+    .hero-content p {
+      font-size: 18px;
+    }
 
-  .hero-image {
-    flex: 1;
-    text-align: center;
-  }
+    .hero-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
 
-  .hero-image img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-  }
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
 
-  .services {
-    padding: 50px 20px;
-    background-color: #ecf0f1;
-    text-align: center;
-  }
+    .services {
+      padding: 50px 20px;
+      background-color: #ecf0f1;
+      text-align: center;
+    }
 
-  .services h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    color: #2C3E50;
-  }
+    .services h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #2C3E50;
+    }
 
-  .service-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
-  }
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
 
-  .service-item {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
+    .service-item {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
 
-  .service-item:hover {
-    transform: translateY(-5px);
-  }
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
 
-  .about-us {
-    padding: 60px 20px;
-    background: linear-gradient(to right, #f9f9f9, #ffffff);
-    color: #2c3e50;
-    text-align: center;
-  }
+    .about-us {
+      padding: 60px 20px;
+      background: linear-gradient(to right, #f9f9f9, #ffffff);
+      color: #2c3e50;
+      text-align: center;
+    }
 
-  .about-us h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: #2c3e50;
-  }
+    .about-us h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
 
-  .about-container {
-    max-width: 900px;
-    margin: auto;
-    text-align: left;
-    font-size: 18px;
-    line-height: 1.8;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
+    .about-container {
+      max-width: 900px;
+      margin: auto;
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.8;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
 
-  .contact-us {
-    padding: 60px 20px;
-    background-color: #e8f4f8;
-    text-align: center;
-  }
+    .contact-us {
+      padding: 60px 20px;
+      background-color: #e8f4f8;
+      text-align: center;
+    }
 
-  .contact-us h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: #2c3e50;
-  }
+    .contact-us h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
 
-  .contact-card {
-    max-width: 600px;
-    margin: auto;
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    font-size: 18px;
-    color: #333;
-    line-height: 1.7;
-    text-align: left;
-  }
+    .contact-card {
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      font-size: 18px;
+      color: #333;
+      line-height: 1.7;
+      text-align: left;
+    }
 
-  .contact-card ul {
-    list-style: none;
-    padding: 0;
-  }
+    .contact-card ul {
+      list-style: none;
+      padding: 0;
+    }
 
-  .contact-card li {
-    margin: 10px 0;
-  }
+    .contact-card li {
+      margin: 10px 0;
+    }
 
-  .contact-card a {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
-  }
+    .contact-card a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-  .contact-card a:hover {
-    text-decoration: underline;
-    color: #2c3e50;
-  }
+    .contact-card a:hover {
+      text-decoration: underline;
+      color: #2c3e50;
+    }
 
-  footer {
-    background-color: #2C3E50;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-  }
+    footer {
+      background-color: #2C3E50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
 
-  footer p {
-    font-size: 14px;
-  }
-</style>
+    footer p {
+      font-size: 14px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 28px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .about-container {
+        font-size: 16px;
+        padding: 15px;
+      }
+
+      .contact-card {
+        font-size: 16px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <img src="logo.png" alt="Logo" class="logo-img" />
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>CSC Keen Common Service Centre Jakyas</h1>
+      <p>All Types of Online Work Will Be Done – From Aadhaar to Passport, Recharges to Certificates. Trusted. Fast. Efficient.</p>
+    </div>
+    <div class="hero-ima
+
 
 </head>
 <body>
