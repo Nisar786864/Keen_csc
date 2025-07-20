@@ -4,7 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keen Common Service Centre - Jakyas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #10b981;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --gray-light: #e2e8f0;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --success: #10b981;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -12,301 +27,1237 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: var(--dark);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Header styles */
     header {
-      background-color: #2C3E50;
-      color: #fff;
-      padding: 20px 0;
+      background-color: white;
+      color: var(--dark);
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 10px 0;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .logo-img {
       height: 50px;
       border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .logo-img:hover {
+      transform: rotate(15deg);
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary);
     }
 
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 30px;
     }
 
     .nav-links a {
-      color: #fff;
+      color: var(--dark);
       text-decoration: none;
-      font-size: 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      position: relative;
       transition: color 0.3s;
     }
 
-    .nav-links a:hover {
-      color: #1abc9c;
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s;
     }
 
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    /* Hero section */
     .hero {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      background: #3498db;
-      color: #fff;
-      padding: 40px 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 120px 5% 80px;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+      opacity: 0.5;
     }
 
     .hero-content {
-      flex: 1 1 300px;
+      flex: 1 1 500px;
       padding: 20px;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: white;
+      color: var(--primary);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      background-color: var(--secondary);
+      color: white;
     }
 
     .hero-image {
-      flex: 1 1 300px;
+      flex: 1 1 500px;
       text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1s ease 0.3s both;
     }
 
     .hero-image img {
       max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      transform: perspective(1000px) rotateY(-10deg);
+      transition: transform 0.5s;
     }
 
+    .hero-image:hover img {
+      transform: perspective(1000px) rotateY(0deg);
+    }
+
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: float 15s infinite linear;
+    }
+
+    .shape:nth-child(1) {
+      width: 300px;
+      height: 300px;
+      top: -50px;
+      left: -50px;
+      animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+      width: 200px;
+      height: 200px;
+      bottom: 100px;
+      right: -50px;
+      animation-delay: 2s;
+      animation-duration: 20s;
+    }
+
+    .shape:nth-child(3) {
+      width: 150px;
+      height: 150px;
+      top: 30%;
+      right: 20%;
+      animation-delay: 4s;
+      animation-duration: 25s;
+    }
+
+    /* Services section */
     .services {
-      background-color: #ecf0f1;
-      padding: 50px 20px;
+      background-color: white;
+      padding: 100px 5%;
       text-align: center;
+      position: relative;
     }
 
-    .services h2 {
-      font-size: 32px;
-      margin-bottom: 30px;
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      color: var(--gray);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 50px;
     }
 
     .service-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .service-item {
-      background: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
+      background: white;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
+      text-align: left;
+    }
+
+    .service-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 0;
+      background: var(--primary);
+      transition: height 0.3s ease;
     }
 
     .service-item:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     }
 
+    .service-item:hover::before {
+      height: 100%;
+    }
+
+    .service-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .service-item h3::before {
+      content: '→';
+      position: absolute;
+      left: -5px;
+      color: var(--primary);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .service-item:hover h3::before {
+      left: 0;
+      opacity: 1;
+    }
+
+    .service-item p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* About section */
     .about-us {
-      background: #fff;
-      padding: 60px 20px;
+      background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+      padding: 100px 5%;
       text-align: center;
-    }
-
-    .about-us h2 {
-      font-size: 32px;
-      margin-bottom: 30px;
+      position: relative;
     }
 
     .about-container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
-      text-align: left;
-      background: #fafafa;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .contact-us {
-      background: #e8f4f8;
-      padding: 60px 20px;
       text-align: center;
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.02), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
     }
 
-    .contact-us h2 {
-      font-size: 32px;
-      margin-bottom: 30px;
+    .about-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    }
+
+    .about-container p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 50px;
+      gap: 20px;
+    }
+
+    .stat-item {
+      flex: 1 1 150px;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+
+    /* Contact section */
+    .contact-us {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 100px 5%;
+      text-align: center;
+      position: relative;
     }
 
     .contact-card {
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
       text-align: left;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
     }
 
-    .contact-card ul {
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    }
+
+    .contact-info {
+      margin-bottom: 30px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--dark);
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .contact-info h3::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      bottom: 0;
+      left: 0;
+      border-radius: 3px;
+    }
+
+    .contact-info ul {
       list-style: none;
       padding: 0;
     }
 
-    .contact-card li {
-      margin: 10px 0;
+    .contact-info li {
+      margin: 15px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
     }
 
-    .contact-card a {
-      color: #3498db;
-      font-weight: bold;
+    .contact-info i {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-top: 3px;
+    }
+
+    .contact-info a {
+      color: var(--dark);
+      font-weight: 500;
       text-decoration: none;
+      transition: color 0.3s;
     }
 
-    .contact-card a:hover {
-      text-decoration: underline;
+    .contact-info a:hover {
+      color: var(--primary);
     }
 
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--gray-light);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Footer */
     footer {
-      background-color: #2C3E50;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 5% 30px;
+      position: relative;
     }
 
-    footer p {
-      font-size: 14px;
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      text-align: left;
+    }
+
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+      bottom: 0;
+      left: 0;
+      border-radius: 3px;
+    }
+
+    .footer-column p {
+      margin-bottom: 15px;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .footer-links i {
+      font-size: 0.8rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 50px auto 0;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 999;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(5deg);
+      }
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1024px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+      
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
       .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background: white;
         flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 40px 20px;
+        gap: 25px;
+        transition: all 0.5s ease;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .mobile-menu-btn {
+        display: block;
       }
 
       .hero {
-        flex-direction: column;
+        padding-top: 100px;
         text-align: center;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .about-container {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .service-list {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header id="header">
     <nav>
       <div class="logo">
-        <img src="logo.png" alt="Logo" class="logo-img" />
+        <img src="logo.png" alt="Keen CSC Logo" class="logo-img" />
+        <span class="logo-text">Keen CSC</span>
       </div>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
   </header>
 
   <section id="home" class="hero">
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
     <div class="hero-content">
-      <h1>Welcome to Keen Common Service Centre</h1>
-      <p>All types of online work will be done quickly, reliably and affordably.</p>
+      <h1>Your Trusted Keen Common Service Centre</h1>
+      <p>Providing comprehensive digital services with reliability and efficiency to empower your digital journey.</p>
+      <a href="#services" class="cta-button">Explore Services</a>
     </div>
     <div class="hero-image">
-      <img src="herosection.jpg" alt="Shop Image" />
+      <img src="herosection_cgpt.png" alt="Keen CSC Service Centre" />
     </div>
   </section>
 
   <section id="services" class="services">
-    <h2>Our Services</h2>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">We offer a wide range of government and non-government services to meet all your needs</p>
+    
     <div class="service-list">
-      <div class="service-item"><h3>Pancard</h3></div>
-    <div class="service-item"><h3>Aadhar Card Print</h3></div>
-    <div class="service-item"><h3>Passport</h3></div>
-    <div class="service-item"><h3>Aavas Yojna</h3></div>
-    <div class="service-item"><h3>EPFO Aadhar Seeding</h3></div>
-    <div class="service-item"><h3>Smart Card</h3></div>
-    <div class="service-item"><h3>Electricity Bill</h3></div>
-    <div class="service-item"><h3>Xerox / Print Out</h3></div>
-    <div class="service-item"><h3>Scanning</h3></div>
-    <div class="service-item"><h3>Lamination</h3></div>
-    <div class="service-item"><h3>Mobile Recharge</h3></div>
-    <div class="service-item"><h3>D2H Recharge</h3></div>
-    <div class="service-item"><h3>Data Entry</h3></div>
-    <div class="service-item"><h3>Air/Bus/Railway Booking</h3></div>
-    <div class="service-item"><h3>National Pension System</h3></div>
-    <div class="service-item"><h3>Health Services</h3></div>
-    <div class="service-item"><h3>RBA, SC, ST, OBC, EWS</h3></div>
-    <div class="service-item"><h3>Income Certificate</h3></div>
-    <div class="service-item"><h3>Domicile Certificate</h3></div>
-    <div class="service-item"><h3>Property Certificate</h3></div>
-    <div class="service-item"><h3>Golden Card Print</h3></div>
-    <div class="service-item"><h3>Download Aadhar</h3></div>
-    <div class="service-item"><h3>E-Shram Card</h3></div>
-    <div class="service-item"><h3>Marriage Assistance</h3></div>
-    <div class="service-item"><h3>Form C</h3></div>
-    <div class="service-item"><h3>ITR</h3></div>
-    <div class="service-item"><h3>JKSSB</h3></div>
-    <div class="service-item"><h3>JK PSC</h3></div>
-    <div class="service-item"><h3>UGC Net Form</h3></div>
-    <div class="service-item"><h3>Land Record Online</h3></div>
-    <div class="service-item"><h3>Passport Size Photo</h3></div>
-    <div class="service-item"><h3>A4 Size Colored Photo</h3></div>
-    <div class="service-item"><h3>Driving Licence</h3></div>
-    <div class="service-item"><h3>Shop License</h3></div>
-    <div class="service-item"><h3>Labour Card</h3></div>
-    <div class="service-item"><h3>Apply Land Record Khasra Girdwari</h3></div>
-    <div class="service-item"><h3>Jamabandi</h3></div>
-    <div class="service-item"><h3>Attestation of Mutation / Copy of Mutation</h3></div>
-    <div class="service-item"><h3>Legal Heir Certificate</h3></div>
-    <div class="service-item"><h3>Apply for Chulha / Chokidara</h3></div>
-    <div class="service-item"><h3>Apply for Unemployment Certificate</h3></div>
-    <div class="service-item"><h3>Apply for Road Cutting Permission</h3></div>
-    <div class="service-item"><h3>Apply for Non-Remarriage Certificate</h3></div>
-    <div class="service-item"><h3>Apply for Dependent Certificate</h3></div>
-    <div class="service-item"><h3>Apply for Pension under JK-ISSS</h3></div>
-    <div class="service-item"><h3>Apply for Job Card under MGNREGA</h3></div>
-    <div class="service-item"><h3>Ration Card Print</h3></div>
-    <div class="service-item"><h3>Apply for E-Shram Card</h3></div>
-    <div class="service-item"><h3>Apply for ABHA Card</h3></div>
-    <div class="service-item"><h3>Intkal Attestation</h3></div>
-    <div class="service-item"><h3>Apply for New Labour Card</h3></div>
-    <div class="service-item"><h3>Apply for Labour Card Scholarship</h3></div>
-
-    <div class="service-item"><h3>Apply for All New Recrutiment Online Form</h3></div>
- 
-      <!-- Add more as needed -->
+      <div class="service-item">
+        <h3>Pancard Services</h3>
+        <p>New application, corrections, updates and more</p>
+      </div>
+      <div class="service-item">
+        <h3>Aadhar Card Print</h3>
+        <p>Print, update and download your Aadhar card</p>
+      </div>
+      <div class="service-item">
+        <h3>Passport Assistance</h3>
+        <p>Application, document verification and tracking</p>
+      </div>
+      <div class="service-item">
+        <h3>Aavas Yojna</h3>
+        <p>Application and documentation support</p>
+      </div>
+      <div class="service-item">
+        <h3>EPFO Aadhar Seeding</h3>
+        <p>Link your Aadhar with EPF account</p>
+      </div>
+      <div class="service-item">
+        <h3>Smart Card Services</h3>
+        <p>Application and renewal services</p>
+      </div>
+      <div class="service-item">
+        <h3>Utility Bill Payments</h3>
+        <p>Electricity, water and other utility bills</p>
+      </div>
+      <div class="service-item">
+        <h3>Document Services</h3>
+        <p>Xerox, printing, scanning and lamination</p>
+      </div>
+      <div class="service-item">
+        <h3>Mobile & D2H Recharge</h3>
+        <p>Prepaid and postpaid mobile recharges</p>
+      </div>
+      <div class="service-item">
+        <h3>Travel Booking</h3>
+        <p>Air, bus and railway ticket booking</p>
+      </div>
+      <div class="service-item">
+        <h3>National Pension System</h3>
+        <p>NPS account opening and management</p>
+      </div>
+      <div class="service-item">
+        <h3>Health Services</h3>
+        <p>ABHA card, health scheme applications</p>
+      </div>
+      <div class="service-item">
+        <h3>Certificate Services</h3>
+        <p>Income, domicile, property certificates</p>
+      </div>
+      <div class="service-item">
+        <h3>RBA, SC, ST, OBC, EWS</h3>
+        <p>Category certificates and documentation</p>
+      </div>
+      <div class="service-item">
+        <h3>E-Shram Card</h3>
+        <p>Registration and card download</p>
+      </div>
+      <div class="service-item">
+        <h3>Marriage Assistance</h3>
+        <p>Certificates and scheme applications</p>
+      </div>
+      <div class="service-item">
+        <h3>Tax Services</h3>
+        <p>ITR filing and Form C assistance</p>
+      </div>
+      <div class="service-item">
+        <h3>Exam Forms</h3>
+        <p>JKSSB, JKPSC, UGC Net form filling</p>
+      </div>
+      <div class="service-item">
+        <h3>Land Records</h3>
+        <p>Online land record services</p>
+      </div>
+      <div class="service-item">
+        <h3>Photo Services</h3>
+        <p>Passport and A4 size photos</p>
+      </div>
+      <div class="service-item">
+        <h3>License Services</h3>
+        <p>Driving license and shop license</p>
+      </div>
+      <div class="service-item">
+        <h3>Labour Card</h3>
+        <p>New application and scholarship</p>
+      </div>
+      <div class="service-item">
+        <h3>Property Services</h3>
+        <p>Khasra Girdwari, Jamabandi, Mutation</p>
+      </div>
+      <div class="service-item">
+        <h3>Legal Heir Certificate</h3>
+        <p>Application and documentation</p>
+      </div>
+      <div class="service-item">
+        <h3>Chulha/Chokidara</h3>
+        <p>Application processing</p>
+      </div>
+      <div class="service-item">
+        <h3>Unemployment Certificate</h3>
+        <p>Application assistance</p>
+      </div>
+      <div class="service-item">
+        <h3>Road Cutting Permission</h3>
+        <p>Application processing</p>
+      </div>
+      <div class="service-item">
+        <h3>Non-Remarriage Certificate</h3>
+        <p>Documentation support</p>
+      </div>
+      <div class="service-item">
+        <h3>Dependent Certificate</h3>
+        <p>Application assistance</p>
+      </div>
+      <div class="service-item">
+        <h3>Pension Services</h3>
+        <p>JK-ISSS pension application</p>
+      </div>
+      <div class="service-item">
+        <h3>MGNREGA Job Card</h3>
+        <p>Application and processing</p>
+      </div>
+      <div class="service-item">
+        <h3>Ration Card Print</h3>
+        <p>Print and download services</p>
+      </div>
+      <div class="service-item">
+        <h3>ABHA Card</h3>
+        <p>Registration and card download</p>
+      </div>
+      <div class="service-item">
+        <h3>Intkal Attestation</h3>
+        <p>Document attestation services</p>
+      </div>
     </div>
   </section>
 
   <section id="about" class="about-us">
-    <h2>About Us</h2>
+    <h2 class="section-title">About Keen CSC</h2>
+    <p class="section-subtitle">Your trusted partner in digital empowerment</p>
+    
     <div class="about-container">
       <p>
-        Keen Common Service Centre (CSC) Jakayas is your trusted one-stop destination for a wide range of government and non-government online services. We aim to simplify citizens’ access to essential digital services by providing a reliable, professional, and friendly environment right in your neighborhood.
+        Keen Common Service Centre (CSC) Jakyas is your trusted one-stop destination for a wide range of government and non-government online services. We aim to simplify citizens' access to essential digital services by providing a reliable, professional, and friendly environment right in your neighborhood.
       </p>
       <p>
-        With a deep commitment to the “Digital India” initiative, we empower citizens of all age groups — especially in rural and semi-urban areas — by bringing digital governance to your doorstep.
+        With a deep commitment to the "Digital India" initiative, we empower citizens of all age groups — especially in rural and semi-urban areas — by bringing digital governance to your doorstep. Our trained professionals ensure that you receive accurate information and quality service for all your needs.
       </p>
+      <p>
+        Since our establishment, we have served thousands of satisfied customers with our efficient and transparent services. We continuously update our knowledge and systems to provide you with the latest services as per government norms.
+      </p>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">5000+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Services Offered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Satisfaction Guarantee</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="contact" class="contact-us">
-    <h2>Contact Us</h2>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Get in touch for any queries or service requests</p>
+    
     <div class="contact-card">
-      <p>We're here to help! Feel free to reach us via any of the following ways:</p>
-      <ul>
-        <li><strong>Email:</strong> <a href="mailto:nissarahmed789789@gmail.com">nissarahmed789789@gmail.com</a></li>
-        <li><strong>Phone 1:</strong> <a href="tel:+7296865476">+91 7296865476</a></li>
-        <li><strong>Phone 2:</strong> <a href="tel:+6006558728">+91 6006558728</a></li>
-        <li><strong>Address:</strong> Jakyas, Jammu & Kashmir, India</li>
-      </ul>
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <ul>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Address:</strong><br>
+              Jakyas, Jammu & Kashmir, India
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <strong>Phone:</strong><br>
+              <a href="tel:+7296865476">+91 7296865476</a><br>
+              <a href="tel:+6006558728">+91 6006558728</a>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email:</strong><br>
+              <a href="mailto:nissarahmed789789@gmail.com">nissarahmed789789@gmail.com</a>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong>Working Hours:</strong><br>
+              Monday-Saturday: 9:00 AM - 7:00 PM
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" placeholder="How can we help you?"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Keen Common Service Centre. All Rights Reserved.</p>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>About Keen CSC</h3>
+        <p>Your trusted one-stop destination for all government and non-government online services in Jakyas, Jammu & Kashmir.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Popular Services</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Aadhar Card</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Pancard</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Passport</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Certificate Services</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter for updates on new services and offers.</p>
+        <form>
+          <div class="form-group">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" class="submit-btn">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Keen Common Service Centre. All Rights Reserved.</p>
+    </div>
   </footer>
+
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Back to top button
+    const backToTopBtn = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Active link highlighting
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop - 300) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+    });
+    
+    // Animation on scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.service-item, .about-container, .contact-card');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+    
+    // Set initial state for animation
+    document.querySelectorAll('.service-item, .about-container, .contact-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease';
+    });
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
 </body>
 </html>
