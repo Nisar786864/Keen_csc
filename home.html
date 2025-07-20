@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keen Common Service Centre</title>
+
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+
+  header {
+    background-color: #2C3E50;
+    padding: 20px;
+    color: white;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0 15px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #1abc9c;
+  }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #3498db;
+    color: white;
+  }
+
+  .hero-content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .hero-image {
+    flex: 1;
+    text-align: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .services {
+    padding: 50px 20px;
+    background-color: #ecf0f1;
+    text-align: center;
+  }
+
+  .services h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #2C3E50;
+  }
+
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+  .service-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .service-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .about-us {
+    padding: 60px 20px;
+    background: linear-gradient(to right, #f9f9f9, #ffffff);
+    color: #2c3e50;
+    text-align: center;
+  }
+
+  .about-us h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #2c3e50;
+  }
+
+  .about-container {
+    max-width: 900px;
+    margin: auto;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact-us {
+    padding: 60px 20px;
+    background-color: #e8f4f8;
+    text-align: center;
+  }
+
+  .contact-us h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #2c3e50;
+  }
+
+  .contact-card {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #333;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .contact-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .contact-card li {
+    margin: 10px 0;
+  }
+
+  .contact-card a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .contact-card a:hover {
+    text-decoration: underline;
+    color: #2c3e50;
+  }
+
+  footer {
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+</style>
+
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="file:///E:/nisar/logo.png" alt="Logo" class="logo-img" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Keen Common Service Centre</h1>
+      <p>All types of online work will be done quickly, reliably and affordably.</p>
+    </div>
+    <div class="hero-image">
+      <img src="file:///E:/nisar/herosection.jpg" alt="Shop Image" />
+    </div>
+  </section>
+
+  <!-- Services Section -->
+ <section id="services" class="services">
+  <h2>Our Services</h2>
+  <div class="service-list">
+    <div class="service-item"><h3>Pancard</h3></div>
+    <div class="service-item"><h3>Aadhar Card Print</h3></div>
+    <div class="service-item"><h3>Passport</h3></div>
+    <div class="service-item"><h3>Aavas Yojna</h3></div>
+    <div class="service-item"><h3>EPFO Aadhar Seeding</h3></div>
+    <div class="service-item"><h3>Smart Card</h3></div>
+    <div class="service-item"><h3>Electricity Bill</h3></div>
+    <div class="service-item"><h3>Xerox / Print Out</h3></div>
+    <div class="service-item"><h3>Scanning</h3></div>
+    <div class="service-item"><h3>Lamination</h3></div>
+    <div class="service-item"><h3>Mobile Recharge</h3></div>
+    <div class="service-item"><h3>D2H Recharge</h3></div>
+    <div class="service-item"><h3>Data Entry</h3></div>
+    <div class="service-item"><h3>Air/Bus/Railway Booking</h3></div>
+    <div class="service-item"><h3>National Pension System</h3></div>
+    <div class="service-item"><h3>Health Services</h3></div>
+    <div class="service-item"><h3>RBA, SC, ST, OBC, EWS</h3></div>
+    <div class="service-item"><h3>Income Certificate</h3></div>
+    <div class="service-item"><h3>Domicile Certificate</h3></div>
+    <div class="service-item"><h3>Property Certificate</h3></div>
+    <div class="service-item"><h3>Golden Card Print</h3></div>
+    <div class="service-item"><h3>Download Aadhar</h3></div>
+    <div class="service-item"><h3>E-Shram Card</h3></div>
+    <div class="service-item"><h3>Marriage Assistance</h3></div>
+    <div class="service-item"><h3>Form C</h3></div>
+    <div class="service-item"><h3>ITR</h3></div>
+    <div class="service-item"><h3>JKSSB</h3></div>
+    <div class="service-item"><h3>JK PSC</h3></div>
+    <div class="service-item"><h3>UGC Net Form</h3></div>
+    <div class="service-item"><h3>Land Record Online</h3></div>
+    <div class="service-item"><h3>Passport Size Photo</h3></div>
+    <div class="service-item"><h3>A4 Size Colored Photo</h3></div>
+    <div class="service-item"><h3>Driving Licence</h3></div>
+    <div class="service-item"><h3>Shop License</h3></div>
+    <div class="service-item"><h3>Labour Card</h3></div>
+    <div class="service-item"><h3>Apply Land Record Khasra Girdwari</h3></div>
+    <div class="service-item"><h3>Jamabandi</h3></div>
+    <div class="service-item"><h3>Attestation of Mutation / Copy of Mutation</h3></div>
+    <div class="service-item"><h3>Legal Heir Certificate</h3></div>
+    <div class="service-item"><h3>Apply for Chulha / Chokidara</h3></div>
+    <div class="service-item"><h3>Apply for Unemployment Certificate</h3></div>
+    <div class="service-item"><h3>Apply for Road Cutting Permission</h3></div>
+    <div class="service-item"><h3>Apply for Non-Remarriage Certificate</h3></div>
+    <div class="service-item"><h3>Apply for Dependent Certificate</h3></div>
+    <div class="service-item"><h3>Apply for Pension under JK-ISSS</h3></div>
+    <div class="service-item"><h3>Apply for Job Card under MGNREGA</h3></div>
+    <div class="service-item"><h3>Ration Card Print</h3></div>
+    <div class="service-item"><h3>Apply for E-Shram Card</h3></div>
+    <div class="service-item"><h3>Apply for ABHA Card</h3></div>
+    <div class="service-item"><h3>Intkal Attestation</h3></div>
+    <div class="service-item"><h3>Apply for New Labour Card</h3></div>
+    <div class="service-item"><h3>Apply for Labour Card Scholarship</h3></div>
+
+    <div class="service-item"><h3>Apply for All New Recrutiment Online Form</h3></div>
+  </div>
+</section>
+
+
+  <!-- About Us Section -->
+ <section id="about" class="about-us">
+  <h2>About Us</h2>
+  <div class="about-container">
+    <p>
+      Keen Common Service Centre (CSC) Jakayas is your trusted one-stop destination for a wide range of government and non-government online services. We aim to simplify citizens’ access to essential digital services by providing a reliable, professional, and friendly environment right in your neighborhood.
+    </p>
+    <p>
+      Our services cover everything from Aadhaar card printing, PAN card applications, EPFO Aadhar seeding, income and domicile certificates, smart card registrations, passport assistance, and mobile/DTH recharge — to railway/air ticket bookings, e-Shram card generation, and more.
+    </p>
+    <p>
+      With a deep commitment to the “Digital India” initiative, we empower citizens of all age groups — especially in rural and semi-urban areas — by bringing digital governance to your doorstep.
+    </p>
+    <p>
+      Whether you need documentation, photo services, certificate attestation, or access to government benefits, Keen CSC ensures you get the support you need without long queues or confusion.
+    </p>
+  </div>
+</section>
+
+
+  <!-- Contact Us Section -->
+ <section id="contact" class="contact-us">
+  <h2>Contact Us</h2>
+  <div class="contact-card">
+    <p>We're here to help! Feel free to reach us via any of the following ways:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:nissarahmed789789@gmail.com">nissarahmed789789@gmail.com</a></li>
+      <li><strong>Phone 1:</strong> <a href="tel:+7296865476">+91 7296865476</a></li>
+      <li><strong>Phone 2:</strong> <a href="tel:+6006558728">+91 6006558728</a></li>
+      <li><strong>Address:</strong> Jakyas, Jammu & Kashmir, India</li>
+    </ul>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Keen Common Service Centre. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
